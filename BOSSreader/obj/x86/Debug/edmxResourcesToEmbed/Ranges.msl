@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BossRecordsDataStoreContainer" CdmEntityContainer="BossDataContext">
+    <EntitySetMapping Name="BossRangeDatas">
+      <EntityTypeMapping TypeName="BossRecordsData.BossRangeData">
+        <MappingFragment StoreEntitySet="BossRangeData">
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Specification" ColumnName="Specification" />
+          <ScalarProperty Name="RangeLow" ColumnName="RangeLow" />
+          <ScalarProperty Name="RangeHigh" ColumnName="RangeHigh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Records">
+      <EntityTypeMapping TypeName="BossRecordsData.Record">
+        <MappingFragment StoreEntitySet="Records">
+          <ScalarProperty Name="DateCast" ColumnName="DateCast" />
+          <ScalarProperty Name="CastDate" ColumnName="CastDate" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="BHNReading" ColumnName="BHNReading" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DailyViews">
+      <EntityTypeMapping TypeName="BossRecordsData.DailyView">
+        <MappingFragment StoreEntitySet="DailyView">
+          <ScalarProperty Name="Max" ColumnName="Max" />
+          <ScalarProperty Name="Minimum" ColumnName="Minimum" />
+          <ScalarProperty Name="BHNCount" ColumnName="BHNCount" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

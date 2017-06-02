@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BossRecordsData.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="BossRecordsDataStoreContainer">
+          <EntitySet Name="BossRangeData" EntityType="BossRecordsData.Store.BossRangeData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Records" EntityType="BossRecordsData.Store.Records" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DailyView" EntityType="BossRecordsData.Store.DailyView" store:Type="Views" store:Schema="dbo" store:Name="DailyView">
+            <DefiningQuery>SELECT 
+      [DailyView].[Date] AS [Date], 
+      [DailyView].[Product] AS [Product], 
+      [DailyView].[BHNCount] AS [BHNCount], 
+      [DailyView].[Minimum] AS [Minimum], 
+      [DailyView].[Max] AS [Max]
+      FROM [dbo].[DailyView] AS [DailyView]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <EntityType Name="BossRangeData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Product" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Specification" Type="nvarchar" MaxLength="50" />
+          <Property Name="RangeLow" Type="float" />
+          <Property Name="RangeHigh" Type="float" />
+        </EntityType>
+        <EntityType Name="Records">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="BHNReading" Type="float" Nullable="false" />
+          <Property Name="Product" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CastDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateCast" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BOSSRecords.dbo.DailyView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="DailyView">
+          <Key>
+            <PropertyRef Name="Product" />
+          </Key>
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Product" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="BHNCount" Type="int" />
+          <Property Name="Minimum" Type="float" />
+          <Property Name="Max" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BOSSRecords.dbo.ProductList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <!--Errors Found During Generation:
+      warning 6013: The table/view 'BOSSRecords.dbo.Production' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="Production">
+        <Property Name="Product" Type="nvarchar" MaxLength="255" />
+        <Property Name="Date" Type="datetime" />
+        <Property Name="Quantity" Type="numeric" Precision="7" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'BOSSRecords.dbo.ProductMatchedwithBHN' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="ProductMatchedwithBHN">
+        <Property Name="Product" Type="nvarchar" MaxLength="255" />
+        <Property Name="Date" Type="datetime" />
+        <Property Name="Quantity" Type="numeric" Precision="7" />
+        <Property Name="BHNCount" Type="int" />
+        <Property Name="Minimum" Type="float" />
+        <Property Name="Max" Type="float" />
+      </EntityType>-->
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BossRecordsData" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="BossDataContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BossRangeDatas" EntityType="BossRecordsData.BossRangeData" />
+          <EntitySet Name="Records" EntityType="BossRecordsData.Record" />
+          <EntitySet Name="DailyViews" EntityType="BossRecordsData.DailyView" />
+        </EntityContainer>
+        <EntityType Name="BossRangeData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Product" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Specification" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="RangeLow" Type="Int32" />
+          <Property Name="RangeHigh" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Record">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="BHNReading" Type="Double" Nullable="false" />
+          <Property Name="Product" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="CastDate" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateCast" />
+        </EntityType>
+        <EntityType Name="DailyView">
+          <Key>
+            <PropertyRef Name="Product" />
+          </Key>
+          <Property Type="DateTime" Name="Date" />
+          <Property Type="String" Name="Product" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="BHNCount" />
+          <Property Type="Double" Name="Minimum" />
+          <Property Type="Double" Name="Max" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BossRecordsDataStoreContainer" CdmEntityContainer="BossDataContext">
+          <EntitySetMapping Name="BossRangeDatas">
+            <EntityTypeMapping TypeName="BossRecordsData.BossRangeData">
+              <MappingFragment StoreEntitySet="BossRangeData">
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Specification" ColumnName="Specification" />
+                <ScalarProperty Name="RangeLow" ColumnName="RangeLow" />
+                <ScalarProperty Name="RangeHigh" ColumnName="RangeHigh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Records">
+            <EntityTypeMapping TypeName="BossRecordsData.Record">
+              <MappingFragment StoreEntitySet="Records">
+                <ScalarProperty Name="DateCast" ColumnName="DateCast" />
+                <ScalarProperty Name="CastDate" ColumnName="CastDate" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="BHNReading" ColumnName="BHNReading" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DailyViews">
+            <EntityTypeMapping TypeName="BossRecordsData.DailyView">
+              <MappingFragment StoreEntitySet="DailyView">
+                <ScalarProperty Name="Max" ColumnName="Max" />
+                <ScalarProperty Name="Minimum" ColumnName="Minimum" />
+                <ScalarProperty Name="BHNCount" ColumnName="BHNCount" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Ranges">
+        <EntityTypeShape EntityType="BossRecordsData.BossRangeData" Width="1.5" PointX="0.75" PointY="0.75" Height="1.9802864583333331" IsExpanded="true" />
+        <EntityTypeShape EntityType="BossRecordsData.Record" Width="1.5" PointX="2.75" PointY="0.75" Height="2.172587890625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BossRecordsData.DailyView" Width="1.5" PointX="0.75" PointY="3.75" Height="1.9802864583333322" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

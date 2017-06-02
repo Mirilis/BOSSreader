@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BOSSRecordsModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="ProductNamesContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Products" EntityType="BOSSRecordsModel.Product" />
+  </EntityContainer>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Name" MaxLength="15" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

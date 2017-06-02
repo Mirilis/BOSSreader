@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BossRecordsData" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="BossDataContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BossRangeDatas" EntityType="BossRecordsData.BossRangeData" />
+    <EntitySet Name="Records" EntityType="BossRecordsData.Record" />
+    <EntitySet Name="DailyViews" EntityType="BossRecordsData.DailyView" />
+  </EntityContainer>
+  <EntityType Name="BossRangeData">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Product" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Specification" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="RangeLow" Type="Int32" />
+    <Property Name="RangeHigh" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Record">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" />
+    <Property Name="BHNReading" Type="Double" Nullable="false" />
+    <Property Name="Product" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="CastDate" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DateCast" />
+  </EntityType>
+  <EntityType Name="DailyView">
+    <Key>
+      <PropertyRef Name="Product" />
+    </Key>
+    <Property Type="DateTime" Name="Date" />
+    <Property Type="String" Name="Product" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="BHNCount" />
+    <Property Type="Double" Name="Minimum" />
+    <Property Type="Double" Name="Max" />
+  </EntityType>
+</Schema>

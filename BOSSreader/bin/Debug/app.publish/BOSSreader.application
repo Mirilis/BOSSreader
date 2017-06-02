@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xrml="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <assemblyIdentity name="BOSSreader.application" version="1.0.0.11" publicKeyToken="ea07bca17175840f" language="neutral" processorArchitecture="x86" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <description asmv2:publisher="BOSSreader" asmv2:product="BOSSreader" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <deployment install="true" mapFileExtensions="true">
+    <subscription>
+      <update>
+        <beforeApplicationStartup />
+      </update>
+    </subscription>
+    <deploymentProvider codebase="file://newnas01/dir-grps/QUAL/BOSSreader.application" />
+  </deployment>
+  <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
+    <framework targetVersion="4.0" profile="Client" supportedRuntime="4.0.30319" />
+    <framework targetVersion="4.0" profile="Full" supportedRuntime="4.0.30319" />
+  </compatibleFrameworks>
+  <dependency>
+    <dependentAssembly dependencyType="install" codebase="Application Files\BOSSreader_1_0_0_11\BOSSreader.exe.manifest" size="7551">
+      <assemblyIdentity name="BOSSreader.exe" version="1.0.0.11" publicKeyToken="ea07bca17175840f" language="neutral" processorArchitecture="x86" type="win32" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>+h992zkEiSRAXjiAL1oZsjhH5mY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+<publisherIdentity name="CN=GREDEW2K\ahoover" issuerKeyHash="fc5ed61379a7731449579a61ac74daf778c10820" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>U4iyuXdugg004iDd38wr4RMYY8o=</DigestValue></Reference></SignedInfo><SignatureValue>guwdJWIr0/V5SXn5niqsQ7XiDF2W+dIh3eE3LndCJmlxZg+K6R3Gu3yHCXdmiBVgydr/K8wu62rW0Lh+RJ6FVqclsh96uhiNZ20TZBg8Xod66su/6sIrMYlQOKJHOzOz1zhSZBveXhLr6+GFaA3mQ18q5aWgWdGMQOLR2iKc5yw=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>021hEqxGVQNVjOBgZR0d6I8pSLdU1yPMDzNAYAe59g2eHit9MGoJsSPUvS+K9HYZiEDxG8TBkU9ti4S/pYgjPSUeuCnoiDfvw3irGOypGpQesHQYCpgiP4OqZFNxP7fjc5nGIu0LTdid4N3YNBslmsSpkw76XUnO6q6OAvBZ/sk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="ca631813e12bccdfdd20e2340d826e77b9b28853" Description="" Url=""><as:assemblyIdentity name="BOSSreader.application" version="1.0.0.11" publicKeyToken="ea07bca17175840f" language="neutral" processorArchitecture="x86" xmlns="urn:schemas-microsoft-com:asm.v1" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=GREDEW2K\ahoover</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>fqPGrYglsu9gxPvjklOeGQcoWic=</DigestValue></Reference></SignedInfo><SignatureValue>tARmkDj9MWlKFZJeSwfmVBQq104evfQhKj0X5VHZrI5iQDzdvzKYmtaRs9ADkH97ApLuvneyxVHVjBdltyyWNGJCohkAy600insbNLGEiUEEL6dNYgd1kwpCOY2Up0u7b4UqEEHXXuYtBem9q7ma9Aa9qADoODzgXCdDlTr5RmE=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>021hEqxGVQNVjOBgZR0d6I8pSLdU1yPMDzNAYAe59g2eHit9MGoJsSPUvS+K9HYZiEDxG8TBkU9ti4S/pYgjPSUeuCnoiDfvw3irGOypGpQesHQYCpgiP4OqZFNxP7fjc5nGIu0LTdid4N3YNBslmsSpkw76XUnO6q6OAvBZ/sk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB2TCCAUKgAwIBAgIQJ9IMBzjxL49IKzUL2pAHpDANBgkqhkiG9w0BAQUFADArMSkwJwYDVQQDHiAARwBSAEUARABFAFcAMgBLAFwAYQBoAG8AbwB2AGUAcjAeFw0xNzA0MTExNzEzMzZaFw0xODA0MTEyMzEzMzZaMCsxKTAnBgNVBAMeIABHAFIARQBEAEUAVwAyAEsAXABhAGgAbwBvAHYAZQByMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDTbWESrEZVA1WM4GBlHR3ojylIt1TXI8wPM0BgB7n2DZ4eK30wagmxI9S9L4r0dhmIQPEbxMGRT22LhL+liCM9JR64KeiIN+/DeKsY7KkalB6wdBgKmCI/g6pkU3E/t+NzmcYi7QtN2J3g3dg0GyWaxKmTDvpdSc7qro4C8Fn+yQIDAQABMA0GCSqGSIb3DQEBBQUAA4GBAEsvVcr5IetL576sKjwTMqgbje4roChujCOE/qxV29TTblqjB7J/JBboBYlySQURVqoXeMTP+mSaHONQ9OPQm8DSYHA7V07hK4WJM8oIEHCFjJJQh39I7YDRFy9cpXoji3n4g8ia3bJ87j8RFNzzvRFN1AGD6ZBayTQeaxzO6h/V</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

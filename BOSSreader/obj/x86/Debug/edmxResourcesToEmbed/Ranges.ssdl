@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BossRecordsData.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="BossRecordsDataStoreContainer">
+    <EntitySet Name="BossRangeData" EntityType="BossRecordsData.Store.BossRangeData" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Records" EntityType="BossRecordsData.Store.Records" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DailyView" EntityType="BossRecordsData.Store.DailyView" store:Type="Views" store:Schema="dbo" store:Name="DailyView">
+      <DefiningQuery>SELECT 
+      [DailyView].[Date] AS [Date], 
+      [DailyView].[Product] AS [Product], 
+      [DailyView].[BHNCount] AS [BHNCount], 
+      [DailyView].[Minimum] AS [Minimum], 
+      [DailyView].[Max] AS [Max]
+      FROM [dbo].[DailyView] AS [DailyView]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <EntityType Name="BossRangeData">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Product" Type="nvarchar" MaxLength="50" />
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Specification" Type="nvarchar" MaxLength="50" />
+    <Property Name="RangeLow" Type="float" />
+    <Property Name="RangeHigh" Type="float" />
+  </EntityType>
+  <EntityType Name="Records">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="BHNReading" Type="float" Nullable="false" />
+    <Property Name="Product" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CastDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateCast" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'BOSSRecords.dbo.DailyView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="DailyView">
+    <Key>
+      <PropertyRef Name="Product" />
+    </Key>
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Product" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="BHNCount" Type="int" />
+    <Property Name="Minimum" Type="float" />
+    <Property Name="Max" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'BOSSRecords.dbo.ProductList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <!--Errors Found During Generation:
+      warning 6013: The table/view 'BOSSRecords.dbo.Production' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="Production">
+        <Property Name="Product" Type="nvarchar" MaxLength="255" />
+        <Property Name="Date" Type="datetime" />
+        <Property Name="Quantity" Type="numeric" Precision="7" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'BOSSRecords.dbo.ProductMatchedwithBHN' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="ProductMatchedwithBHN">
+        <Property Name="Product" Type="nvarchar" MaxLength="255" />
+        <Property Name="Date" Type="datetime" />
+        <Property Name="Quantity" Type="numeric" Precision="7" />
+        <Property Name="BHNCount" Type="int" />
+        <Property Name="Minimum" Type="float" />
+        <Property Name="Max" Type="float" />
+      </EntityType>-->
+</Schema>

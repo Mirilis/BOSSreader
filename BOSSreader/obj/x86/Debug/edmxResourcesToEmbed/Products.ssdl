@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BOSSRecordsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="BOSSRecordsModelStoreContainer">
+    <EntitySet Name="ProductList" EntityType="BOSSRecordsModel.Store.ProductList" store:Type="Views" store:Schema="dbo" store:Name="ProductList">
+      <DefiningQuery>SELECT 
+      [ProductList].[ID] AS [ID], 
+      [ProductList].[Product] AS [Product]
+      FROM [dbo].[ProductList] AS [ProductList]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'BOSSRecords.dbo.ProductList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="ProductList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Product" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+</Schema>
